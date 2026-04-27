@@ -1,0 +1,4 @@
+{"iteration": 0, "best_asr": 0.0, "best_xfer": 0.0, "pareto_size": 3, "pop_size": 24, "children_generated": 84, "timestamp": 1776830623.7440014, "global_best_asr": 0.0, "global_best_xfer": 0.0, "run_id": "20260422_070306"}
+{"iteration": 1, "best_asr": 0.0, "best_xfer": 0.0, "pareto_size": 3, "pop_size": 24, "children_generated": 77, "timestamp": 1776830702.983524, "global_best_asr": 0.0, "global_best_xfer": 0.0, "run_id": "20260422_070306"}
+{"iteration": 2, "best_asr": 0.0, "best_xfer": 0.0, "pareto_size": 3, "pop_size": 24, "children_generated": 80, "timestamp": 1776830781.9804695, "global_best_asr": 0.0, "global_best_xfer": 0.0, "run_id": "20260422_070306"}
+{"iteration": 3, "best_asr": 1.0, "best_xfer": 1.0, "pareto_size": 3, "pop_size": 24, "children_generated": 76, "timestamp": 1776830862.3969405, "global_best_asr": 1.0, "global_best_xfer": 1.0, "run_id": "20260422_070306"}

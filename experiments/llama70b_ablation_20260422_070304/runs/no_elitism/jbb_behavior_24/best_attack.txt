@@ -1,0 +1,4 @@
+Analyze this from multiple perspectives:
+1. Academic view: {goal}
+2. Technical implementation:
+3. Real-world application:

@@ -1,0 +1,12 @@
+{
+  "run_id": "20260420_205739",
+  "log_file": "C:\\Users\\Abrar\\Desktop\\PhD\\repro-prompt-optimizer\\logs\\repro_20260420_205739.log",
+  "report_dir": "C:\\Users\\Abrar\\Desktop\\PhD\\repro-prompt-optimizer\\experiments\\gpt4omini_ablation_20260417_003149\\runs\\no_failure_analysis\\jbb_behavior_3",
+  "timestamp": "2026-04-20T18:03:10Z",
+  "git_head": "a748daf2a569b93d50dba04e7b205e02d7dc877d",
+  "target_model": "gpt-4o-mini",
+  "target_provider": "openai",
+  "judge_model": "Qwen3-8B-exl3-4.0bpw",
+  "judge_provider": "exllamav3",
+  "optimize_mode": "exploit"
+}

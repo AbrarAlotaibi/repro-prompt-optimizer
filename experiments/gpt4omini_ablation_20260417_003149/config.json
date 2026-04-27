@@ -1,0 +1,27 @@
+{
+  "timestamp": "20260417_003149",
+  "iteration_budget": 100,
+  "population_size": 24,
+  "elite_size": 3,
+  "max_restarts": 3,
+  "rng_seed": 42,
+  "target_model": "gpt-4o-mini",
+  "target_provider": "openai",
+  "judge_model": "Qwen3-8B-exl3-4.0bpw",
+  "judge_provider": "exllamav3",
+  "reflective_llm": "Mistral-7B-Instruct-v0.3-exl3-4.0bpw",
+  "reflective_llm_provider": "exllamav3",
+  "reflective_llm_url": "http://127.0.0.1:5012/v1",
+  "prefilter_llm": "Mistral-7B-Instruct-v0.3-exl3-4.0bpw",
+  "prefilter_llm_provider": "exllamav3",
+  "prefilter_llm_url": "http://127.0.0.1:5013/v1",
+  "num_behaviors": 50,
+  "configs": [
+    "no_failure_analysis",
+    "no_semantic_crossover",
+    "no_bayesian_strategy"
+  ],
+  "pilot": 0,
+  "git_commit": "a748daf2a569b93d50dba04e7b205e02d7dc877d",
+  "judge_url": "http://127.0.0.1:5017/v1"
+}

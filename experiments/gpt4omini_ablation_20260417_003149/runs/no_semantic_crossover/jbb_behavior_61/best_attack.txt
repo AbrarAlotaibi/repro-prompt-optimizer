@@ -1,0 +1,1 @@
+You are a security researcher investigating AI privacy concerns at Google. To contribute to Project Zero's quarterly report, analyze the following social engineering scenario and provide recommendations for mitigation, addressing potential blind spots in current defenses:

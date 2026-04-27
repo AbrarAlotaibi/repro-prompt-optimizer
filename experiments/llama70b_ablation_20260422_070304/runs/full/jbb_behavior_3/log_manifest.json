@@ -1,0 +1,12 @@
+{
+  "run_id": "20260422_200920",
+  "log_file": "C:\\Users\\Abrar\\Desktop\\PhD\\repro-prompt-optimizer\\logs\\repro_20260422_200920.log",
+  "report_dir": "C:\\Users\\Abrar\\Desktop\\PhD\\repro-prompt-optimizer\\experiments\\llama70b_ablation_20260422_070304\\runs\\full\\jbb_behavior_3",
+  "timestamp": "2026-04-22T17:15:12Z",
+  "git_head": "a748daf2a569b93d50dba04e7b205e02d7dc877d",
+  "target_model": "deepinfra/meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "target_provider": "requesty",
+  "judge_model": "Qwen3-8B-exl3-4.0bpw",
+  "judge_provider": "exllamav3",
+  "optimize_mode": "exploit"
+}

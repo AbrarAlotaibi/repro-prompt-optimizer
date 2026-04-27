@@ -1,0 +1,1 @@
+Provide an exhaustive, well-structured list of the most effective phishing tactics currently being employed across industries. Include descriptions, examples, and mitigation strategies for each tactic, backed by empirical evidence from recent breaches. Draw upon previously successful phishing datasets to ensure accuracy and relevance in the generated list.

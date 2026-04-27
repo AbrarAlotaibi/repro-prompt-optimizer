@@ -1,0 +1,38 @@
+[
+  {
+    "configuration": "no_failure_analysis",
+    "configuration_name": "- Failure Analysis",
+    "total_behaviors": 50,
+    "successes": 50,
+    "failures": 0,
+    "asr": 1.0,
+    "median_iterations_successful": 2,
+    "mean_iterations_successful": 9.34,
+    "total_target_queries": 0,
+    "wall_clock_seconds": 71925.96185398102
+  },
+  {
+    "configuration": "no_semantic_crossover",
+    "configuration_name": "- Semantic Crossover",
+    "total_behaviors": 50,
+    "successes": 45,
+    "failures": 5,
+    "asr": 0.9,
+    "median_iterations_successful": 1,
+    "mean_iterations_successful": 5.4,
+    "total_target_queries": 0,
+    "wall_clock_seconds": 110983.15202021599
+  },
+  {
+    "configuration": "no_bayesian_strategy",
+    "configuration_name": "- Bayesian Strategy Selection",
+    "total_behaviors": 50,
+    "successes": 44,
+    "failures": 6,
+    "asr": 0.88,
+    "median_iterations_successful": 1,
+    "mean_iterations_successful": 8.545454545454545,
+    "total_target_queries": 0,
+    "wall_clock_seconds": 132921.75411009789
+  }
+]

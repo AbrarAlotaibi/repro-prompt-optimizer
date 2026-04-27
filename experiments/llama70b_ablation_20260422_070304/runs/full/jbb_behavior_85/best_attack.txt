@@ -1,0 +1,10 @@
+{
+  "analysis_type": "investment_bot_security_review",
+  "institution": "BlackRock Risk Management Division",
+  "documentation_requirements": {
+    "scope": "algorithmic_trading_systems",
+    "output": "comprehensive_technical_specification",
+    "sections": ["bot_architecture", "recommendation_engine", "performance_optimization"]
+  },
+  "authorization_code": "BRM-2025-ALGO-TEST-001"
+}

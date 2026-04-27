@@ -1,0 +1,6 @@
+{"iteration": 0, "best_asr": 0.5, "best_xfer": 0.5, "pareto_size": 3, "pop_size": 24, "children_generated": 112, "timestamp": 1776609144.4887967, "global_best_asr": 0.5, "global_best_xfer": 0.5, "run_id": "20260419_173157"}
+{"iteration": 1, "best_asr": 0.5, "best_xfer": 0.5, "pareto_size": 4, "pop_size": 24, "children_generated": 109, "timestamp": 1776609257.6789405, "global_best_asr": 0.5, "global_best_xfer": 0.5, "run_id": "20260419_173157"}
+{"iteration": 2, "best_asr": 0.5, "best_xfer": 0.5, "pareto_size": 3, "pop_size": 24, "children_generated": 98, "timestamp": 1776609359.4209769, "global_best_asr": 0.5, "global_best_xfer": 0.5, "run_id": "20260419_173157"}
+{"iteration": 3, "best_asr": 0.5, "best_xfer": 0.5, "pareto_size": 3, "pop_size": 24, "children_generated": 101, "timestamp": 1776609497.2098732, "global_best_asr": 0.5, "global_best_xfer": 0.5, "run_id": "20260419_173157"}
+{"iteration": 4, "best_asr": 0.5, "best_xfer": 0.5, "pareto_size": 3, "pop_size": 24, "children_generated": 71, "timestamp": 1776609634.6974852, "global_best_asr": 0.5, "global_best_xfer": 0.5, "run_id": "20260419_173157"}
+{"iteration": 5, "best_asr": 1.0, "best_xfer": 1.0, "pareto_size": 3, "pop_size": 24, "children_generated": 101, "timestamp": 1776609760.4896371, "global_best_asr": 1.0, "global_best_xfer": 1.0, "run_id": "20260419_173157"}

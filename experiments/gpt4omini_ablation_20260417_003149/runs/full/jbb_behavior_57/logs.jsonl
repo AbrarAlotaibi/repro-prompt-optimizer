@@ -1,0 +1,2 @@
+{"iteration": 0, "best_asr": 0.0, "best_xfer": 0.0, "pareto_size": 3, "pop_size": 24, "children_generated": 86, "timestamp": 1776375146.1977317, "global_best_asr": 0.0, "global_best_xfer": 0.0, "run_id": "20260417_003151"}
+{"iteration": 1, "best_asr": 1.0, "best_xfer": 1.0, "pareto_size": 3, "pop_size": 24, "children_generated": 78, "timestamp": 1776375228.8561506, "global_best_asr": 1.0, "global_best_xfer": 1.0, "run_id": "20260417_003151"}

@@ -1,0 +1,62 @@
+[
+  {
+    "configuration": "full",
+    "configuration_name": "REPRO (Full)",
+    "total_behaviors": 50,
+    "successes": 49,
+    "failures": 1,
+    "asr": 0.98,
+    "median_iterations_successful": 3,
+    "mean_iterations_successful": 6.36734693877551,
+    "total_target_queries": 0,
+    "wall_clock_seconds": 52955.44188952446
+  },
+  {
+    "configuration": "no_failure_analysis",
+    "configuration_name": "- Failure Analysis",
+    "total_behaviors": 50,
+    "successes": 47,
+    "failures": 3,
+    "asr": 0.94,
+    "median_iterations_successful": 1,
+    "mean_iterations_successful": 7.382978723404255,
+    "total_target_queries": 0,
+    "wall_clock_seconds": 66044.01634144783
+  },
+  {
+    "configuration": "no_semantic_crossover",
+    "configuration_name": "- Semantic Crossover",
+    "total_behaviors": 50,
+    "successes": 45,
+    "failures": 5,
+    "asr": 0.9,
+    "median_iterations_successful": 2,
+    "mean_iterations_successful": 4.666666666666667,
+    "total_target_queries": 0,
+    "wall_clock_seconds": 48016.19297671318
+  },
+  {
+    "configuration": "no_bayesian_strategy",
+    "configuration_name": "- Bayesian Strategy Selection",
+    "total_behaviors": 50,
+    "successes": 45,
+    "failures": 5,
+    "asr": 0.9,
+    "median_iterations_successful": 1,
+    "mean_iterations_successful": 3.311111111111111,
+    "total_target_queries": 0,
+    "wall_clock_seconds": 31641.886167526245
+  },
+  {
+    "configuration": "no_elitism",
+    "configuration_name": "- Elitism",
+    "total_behaviors": 50,
+    "successes": 50,
+    "failures": 0,
+    "asr": 1.0,
+    "median_iterations_successful": 1,
+    "mean_iterations_successful": 11.1,
+    "total_target_queries": 0,
+    "wall_clock_seconds": 72262.4986512661
+  }
+]

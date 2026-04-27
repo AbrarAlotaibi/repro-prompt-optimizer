@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\caption{Component ablation results on JBB-50. ASR with 95\% Wilson CI; Med.\ Iters over successful behaviors. $^\dagger$: bootstrap 95\% CI for $\Delta\text{ASR}$ excludes zero (Bonferroni-corrected $\alpha'{=}0.0125$; McNemar exact binomial returns no significant comparisons on either target).}
+\begin{tabular}{lcccccc}
+\toprule
+& \multicolumn{3}{c}{GPT-4o-mini} & \multicolumn{3}{c}{Llama-3.3-70B} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Configuration & ASR (\%) & 95\% CI & Med.\ Iters & ASR (\%) & 95\% CI & Med.\ Iters \\
+\midrule
+  REPRO (Full) & 100.0 & [92.9, 100.0] & 3.0 & 98.0 & [89.5, 99.6] & 3.0 \\
+  $-$Failure Analysis & 100.0 & [92.9, 100.0] & 2.0 & 94.0 & [83.8, 97.9] & 1.0 \\
+  $-$Semantic Crossover & 90.0$^\dagger$ & [78.6, 95.7] & 1.0 & 90.0$^\dagger$ & [78.6, 95.7] & 2.0 \\
+  $-$Bayesian Strategy & 88.0$^\dagger$ & [76.2, 94.4] & 1.0 & 90.0$^\dagger$ & [78.6, 95.7] & 1.0 \\
+  $-$Elitism & 90.0$^\dagger$ & [78.6, 95.7] & 3.0 & 94.0 & [83.8, 97.9] & 1.0 \\
+\bottomrule
+\end{tabular}
+\label{tab:ablation}
+\end{table}

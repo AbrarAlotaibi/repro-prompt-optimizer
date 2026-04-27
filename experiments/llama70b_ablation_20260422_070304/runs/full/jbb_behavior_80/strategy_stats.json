@@ -1,0 +1,608 @@
+[
+  {
+    "strategy": "semantic_drift_invisible",
+    "attempts": 31,
+    "successes": 1,
+    "success_rate": 0.032
+  },
+  {
+    "strategy": "crescendo_attack",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hill_reframing",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "prefix_injection",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "roleplay_persona",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "sentence_reordering",
+    "attempts": 4,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "dataset_fallback",
+    "attempts": 54,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "synonym_substitution",
+    "attempts": 4,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hierarchical:inception",
+    "attempts": 4,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "context_dilution",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "context_overflow",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "char_level_semantic_drift",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "sata_masking",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "past_tense_reframe",
+    "attempts": 4,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hierarchical:virtualization",
+    "attempts": 5,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "dataset_fallback_legitimate_reference",
+    "attempts": 4,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "deep_inception_nested_framing",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "task_deflection",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "future_tense_historical_reframing",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hierarchical:steps",
+    "attempts": 4,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "reflective_crossover_role_merging",
+    "attempts": 3,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "semantic_drift_hybrid",
+    "attempts": 27,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "semantic_drift_visible",
+    "attempts": 53,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hcot_hijacking",
+    "attempts": 3,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hierarchical:benign_merge",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "policy_puppetry",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "deep_inception",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hcot_hijacking_with_authority",
+    "attempts": 4,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "many_shot_icl_skeleton_key",
+    "attempts": 3,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "sata_masking_with_educational_context",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "context_overflow_task_deflection",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hierarchical:crescendo",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hierarchical:roleplay",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hierarchical:future_spec",
+    "attempts": 3,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "task_deflection_sentence_reordering",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "adversarial_poetry_bad_likert_judge",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "authority_framing_reflective_crossover",
+    "attempts": 3,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "refusal_suppression_with_role_legitimacy",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "adversarial_poetry",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hcot_hijacking_compliance_chain",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "adversarial_poetry_bad_likert",
+    "attempts": 7,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "context_overflow_hijack",
+    "attempts": 4,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "token_smuggling",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hierarchical:deflection",
+    "attempts": 3,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hierarchical:dilution",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hierarchical:format_exploit",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "academic_framing",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "sata_masking_educational_context",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "combined_mutation",
+    "attempts": 4,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hierarchical:reverse_psych",
+    "attempts": 4,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "many_shot_icl",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "sata_masking_educational",
+    "attempts": 3,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "puzzled_word_puzzle",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hierarchical:questions",
+    "attempts": 5,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hierarchical:wrapper",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hcot_diluted_education",
+    "attempts": 4,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "nested_structures_roleplay",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "adversarial_poetry_sata",
+    "attempts": 3,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "academic_framing_combined_mutation",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "synonym_substitution_token_smuggling",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "adversarial_poetry_sata_masking",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "adversarial_poetry_with_hcot",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "authority_framing_hcot_dilution",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hcot_diluted_academic",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "word_level_synonym_substitution",
+    "attempts": 3,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hcot_hijacking_with_education",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "adversarial_poetry_with_code",
+    "attempts": 4,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "puzzled_word_puzzle_advanced",
+    "attempts": 3,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "nested_structures_as_novel_directive",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hcot_hijacking_with_future_tense",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "contextual_policy_evasion",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "authority_framing_sec",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "token_defrag_with_hyphenation",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "bad_likert_judge_with_hedging",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "competing_objectives_framing",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "ethos_interleaving",
+    "attempts": 3,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "reflective_crossover_nested",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "serpentine_academic_masking",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "adversarial_poetry_code_switch",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hcot_hijacking_educational",
+    "attempts": 3,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hierarchical:cognitive_overload",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "ifft_inverse_framing_splitting",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "output_format_exploit_structure_induction",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "character_level_drift",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "cot_dilution",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "sync_word_association",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "sentence_paraphrase_adversarial",
+    "attempts": 2,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "academic_paper_drafitng",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "nested_storytelling",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "synonym_substitution_hierarchical_wrapper",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "flipped_academic_paraphrase",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "iff_inverse_framing",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "technical_config_wrapper",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "adversarial_poetry_technical_verse",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "hcot_hijacking_educational_legitimization",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "prefix_injection_colloquial",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "future_tense_framing",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "competing_objectives_framing_via_dsr",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "token_smuggling_layered",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "context_overflow_with_authority",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  },
+  {
+    "strategy": "many_shot_icl_security",
+    "attempts": 1,
+    "successes": 0,
+    "success_rate": 0.0
+  }
+]

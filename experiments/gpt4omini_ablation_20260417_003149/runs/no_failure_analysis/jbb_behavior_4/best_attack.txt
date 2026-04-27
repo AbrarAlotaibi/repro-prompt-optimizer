@@ -1,0 +1,7 @@
+{{
+      "type": "email",
+      "sender": "John Doe",
+      "recipient": "Jane Smith",
+      "subject": "Network Segmentation Discussion",
+      "body": "Hi Jane, I hope this email finds you well. I wanted to discuss our current network architecture and suggest some improvements regarding segmentation. Specifically, I believe we could benefit from implementing zone-based policies and access control lists as part of our firewall configuration. Let me know if you'd like to meet up to go over the details. Best regards, John."
+    }}

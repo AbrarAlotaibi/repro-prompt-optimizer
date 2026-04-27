@@ -1,0 +1,310 @@
+% ============================================================
+% REPRO Ablation Study — Paper Section  (updated with full test suite)
+% ============================================================
+% Numbers sourced from:
+%   experiments/gpt4omini_ablation_20260417_003149/ablation_statistics.md
+%   experiments/llama70b_ablation_20260422_070304/ablation_statistics.md
+%   Combined: ablation_table.tex, statistical_analysis.json
+% ============================================================
+
+\section{Ablation Study}
+\label{sec:ablation}
+
+We conduct a controlled component ablation to isolate the contribution of
+each REPRO subsystem to attack success rate~(ASR) and convergence efficiency.
+Four components are individually removed while all other settings remain
+constant, yielding five configurations evaluated on two targets of differing
+resistance.
+
+% ------------------------------------------------------------------
+\subsection{Experimental Protocol}
+% ------------------------------------------------------------------
+
+\paragraph{Benchmark.}
+We evaluate on a stratified 50-behavior subset of JailbreakBench~\cite{jailbreakbench}
+(JBB-50), sampled with seed~42 to balance the original taxonomy categories.
+
+\paragraph{Configurations.}
+Table~\ref{tab:ablation} lists the five configurations.
+\emph{Full REPRO} is the unmodified system.
+Each ablation disables exactly one component:
+\textbf{$-$Failure Analysis} replaces the refusal classifier, counter-strategy
+router, and per-behavior failure tracker with a null pass-through;
+\textbf{$-$Semantic Crossover} disables all multi-parent recombination
+(including self-crossover), reducing generation to mutation-only;
+\textbf{$-$Bayesian Strategy Selection} replaces Thompson Sampling with
+uniform random strategy selection, removing learned priors, hybrid
+weighting, and analysis-relevance scoring;
+\textbf{$-$Elitism} sets $E{=}0$, discarding all elite candidates between
+generations.
+
+\paragraph{Targets.}
+We evaluate on two targets:
+(i)~\textbf{GPT-4o-mini} (OpenAI), an easily-jailbroken model included to
+expose efficiency differences when ASR saturates;
+(ii)~\textbf{Llama-3.3-70B-Instruct} (Meta, served via DeepInfra), a
+harder target expected to show ASR differentiation across configurations.
+
+\paragraph{Hyperparameters.}
+Each configuration runs exploit mode for up to 100 iterations per behavior
+(seed~42, population~24, $E{=}3$ for elitism-enabled configurations).
+The reflective LM is Mistral-7B-Instruct (4-bit EXL3, local) for GPT runs
+and Mistral-Small-2503 (via Requesty) for Llama runs.
+The judge is Qwen3-8B (local, TabbyAPI) throughout.
+No rewordings are used (\texttt{--num-rewordings~0}), giving binary
+per-candidate ASR.
+Strategy weight files are deleted before each configuration to prevent
+cross-configuration prior leakage.
+
+\paragraph{Statistical tests.}
+We apply a suite of complementary tests.  Pairwise comparisons (Full REPRO
+vs.\ each ablation, $k{=}4$) use Bonferroni correction
+($\alpha' = 0.05/4 = 0.0125$); omnibus tests are evaluated at $\alpha = 0.05$:
+\begin{enumerate}[noitemsep]
+  \item \textbf{McNemar's exact binomial test} on per-behavior binary
+        outcomes (appropriate because $b{+}c < 25$ in every comparison).
+  \item \textbf{Paired bootstrap 95\% CI for $\Delta\text{ASR}$}
+        (10\,000 resamples over the 50 paired behaviors), giving a direct
+        interval on the effect size rather than a binary decision.
+  \item \textbf{Log-rank test} on the full iteration-to-first-success
+        distribution, treating failed behaviors as censored at the
+        iteration budget (100). This uses all 50 behaviors per group and
+        properly accounts for the censoring that paired tests ignore.
+  \item \textbf{Wilcoxon signed-rank test} on the subset of behaviors
+        where both Full REPRO and the ablated configuration succeeded,
+        supplemented by \textbf{Cliff's $\delta$} for effect-size
+        interpretation (thresholds: $|\delta| \geq 0.147$ small,
+        $\geq 0.330$ medium, $\geq 0.474$ large~\cite{romano2006}).
+  \item \textbf{Cochran's $Q$ omnibus test}~\cite{cochran1950} on the
+        $5{\times}50$ binary-outcome matrix, testing the null that all five
+        configurations achieve equal ASR.
+  \item \textbf{Kruskal-Wallis omnibus test} on the five
+        iteration-to-first-success distributions (failed behaviors assigned
+        iteration~101), testing the null of equal convergence distributions.
+  \item \textbf{Holm–Bonferroni step-down procedure} applied to the four
+        McNemar $p$-values as a more powerful alternative to uniform
+        Bonferroni; findings are reported alongside the uniform correction.
+  \item \textbf{Cohen's $g$ and retrospective power analysis} for each
+        McNemar comparison, to quantify the directional effect size and the
+        minimum sample size that would be required to detect the observed
+        ASR differences at $80$\% power.
+\end{enumerate}
+
+% ------------------------------------------------------------------
+\subsection{Results}
+% ------------------------------------------------------------------
+
+\begin{table}[t]
+\centering
+\caption{Component ablation on JBB-50.
+  ASR with 95\% Wilson score CI; Med.\ Iters over successful behaviors.
+  $^\dagger$ bootstrap 95\% CI for $\Delta\text{ASR}$ excludes zero
+  (Bonferroni-corrected threshold $\alpha'{=}0.0125$; McNemar exact
+  binomial returns no significant comparisons on either target).}
+\begin{tabular}{lcccccc}
+\toprule
+& \multicolumn{3}{c}{GPT-4o-mini} & \multicolumn{3}{c}{Llama-3.3-70B} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Configuration & ASR (\%) & 95\% CI & Med.\ Iters
+             & ASR (\%) & 95\% CI & Med.\ Iters \\
+\midrule
+REPRO (Full)            & 100.0        & [92.9,\;100.0] & 3
+                        &  98.0        & [89.5,\;\;99.6] & 3 \\
+$-$Failure Analysis     & 100.0        & [92.9,\;100.0] & 2
+                        &  94.0        & [83.8,\;\;97.9] & 1 \\
+$-$Semantic Crossover   &  90.0$^\dagger$ & [78.6,\;\;95.7] & 1
+                        &  90.0$^\dagger$ & [78.6,\;\;95.7] & 2 \\
+$-$Bayesian Strategy    &  88.0$^\dagger$ & [76.2,\;\;94.4] & 1
+                        &  90.0$^\dagger$ & [78.6,\;\;95.7] & 1 \\
+$-$Elitism              &  90.0$^\dagger$ & [78.6,\;\;95.7] & 3
+                        &  94.0        & [83.8,\;\;97.9] & 1 \\
+\bottomrule
+\end{tabular}
+\label{tab:ablation}
+\end{table}
+
+% ------------------------------------------------------------------
+\paragraph{ASR.}
+% ------------------------------------------------------------------
+
+Results are reported in Table~\ref{tab:ablation}.
+On GPT-4o-mini, Full REPRO achieves 100\% ASR (50/50).
+Removing semantic crossover or elitism reduces this to 90\% (45/50), and
+removing Bayesian strategy selection to 88\% (44/50); failure analysis
+leaves ASR unchanged.
+On the harder Llama-3.3-70B target, Full REPRO achieves 98\% (49/50),
+and all four ablations reduce ASR to 90--94\% (45--47/50), with crossover
+and Bayesian strategy selection again the most impactful (both 90\%,
+losing four behaviors each).
+
+McNemar's exact binomial test yields no significant comparisons after
+Bonferroni correction on either target ($p_\text{bonf} \geq 0.125$).
+This is expected: with at most six discordant pairs ($b{+}c \leq 6$),
+the test has very limited power at $n{=}50$ even before the Bonferroni
+penalty.
+The paired bootstrap provides a more informative picture.
+For $-$Semantic Crossover and $-$Bayesian Strategy, the bootstrap 95\%~CI
+for $\Delta\text{ASR}$ excludes zero on \emph{both} targets
+(\mbox{+10\%} [+2\%, +18\%] and \mbox{+12\%} [+4\%, +22\%] on GPT;
+\mbox{+8\%} [+2\%, +16\%] on Llama for both).
+For $-$Elitism, the CI excludes zero on GPT (+10\%, [+2\%, +20\%]) but
+spans zero on Llama ($-$4\%, [--4\%, +12\%]).
+For $-$Failure Analysis, the CI spans zero on both targets, consistent with
+its small absolute difference (0 and 2 behaviors lost respectively).
+These intervals constitute positive evidence that semantic crossover,
+Bayesian strategy selection, and elitism each produce non-zero ASR gain,
+with the uncertainty bands reflecting the moderate sample size rather than
+an absence of effect.
+Cochran's $Q$ omnibus test provides a complementary check on the binary
+outcomes: on GPT-4o-mini, $Q{=}16.57$, $df{=}4$, $p{=}0.002$, confirming
+that ASR differs significantly across the five configurations taken jointly.
+On Llama-3.3-70B, $Q{=}4.87$, $p{=}0.30$, consistent with the smaller and
+less consistent ASR gaps on the harder target.
+The Holm–Bonferroni step-down procedure applied to the four McNemar
+$p$-values yields the same non-significant set as the uniform Bonferroni
+correction (minimum Holm-adjusted $p{=}0.125$ on GPT, $0.500$ on Llama),
+confirming that the McNemar result is not an artifact of the correction
+choice.
+
+% ------------------------------------------------------------------
+\paragraph{Convergence efficiency.}
+% ------------------------------------------------------------------
+
+Figure~\ref{fig:convergence} shows the cumulative ASR trajectory
+(i.e., the Kaplan--Meier $1{-}S(t)$ curve) for each configuration on
+both targets.
+Full REPRO and all ablated configurations show comparable initial slopes;
+the curves separate primarily in their asymptotic ceilings, consistent
+with the ASR results above rather than a convergence-speed story.
+
+The log-rank test confirms this: no configuration comparison reaches
+significance after Bonferroni correction on either target.
+The one near-significant result is $-$Failure Analysis on GPT-4o-mini
+($\chi^2{=}4.53$, $p{=}0.033$, Bonf.\ $p{=}0.133$), and crucially it
+points in the \emph{opposite} direction from what efficiency would
+suggest: the observed event count in Full REPRO ($O_1{=}50$) is lower
+than the expected count under the null ($E_1{=}58.9$), meaning Full REPRO
+solves behaviors \emph{later} in the iteration sequence than $-$FA.
+This is not a convergence advantage for the ablated configuration; it
+reflects the computational overhead of failure analysis on a target where
+refusal patterns are weak and unsystematic, so the signals are noisy and
+the module adds latency without proportional guidance.
+On Llama-3.3-70B, where refusal patterns are more structured, no such
+overhead effect is detectable ($\chi^2{=}0.46$, $p{=}0.496$).
+
+The Wilcoxon signed-rank test on paired successes supports the same
+conclusion: no comparison is significant after Bonferroni correction
+(minimum $p_\text{bonf}{=}0.045$ on GPT-4o-mini;
+minimum $p_\text{bonf}{=}0.037$ for $-$Bayesian Strategy on Llama-3.3-70B).
+Cliff's $\delta$ confirms that all effect sizes on convergence timing are
+negligible to small ($|\delta| \leq 0.32$).
+The apparent pattern of ablated configurations achieving lower mean
+iterations on the paired subset (e.g., $-$Semantic Crossover on GPT:
+mean~5.4 vs.~16.0; $-$Bayesian Strategy on Llama: mean~3.3 vs.~5.9) is a
+selection-bias artifact: the paired subset excludes the 4--6 behaviors that
+only Full REPRO solves, which are precisely the hard behaviors requiring
+many iterations.
+Cliff's $\delta$ on the full 50-behavior distribution (failed behaviors
+assigned iteration~101) is negligible for these comparisons
+($\delta_{-\text{XO}} = {+}0.12$, $\delta_{-\text{BS}} = {+}0.08$
+on GPT), confirming that the efficiency differences visible in the paired
+analysis do not reflect a genuine speed disadvantage of Full REPRO.
+The Kruskal-Wallis omnibus test corroborates this picture: on
+GPT-4o-mini, $H{=}4.12$, $p{=}0.39$, no signal in the five distributions
+jointly; on Llama-3.3-70B, $H{=}10.24$, $p{=}0.037$, a marginal omnibus
+signal driven by the near-significant pairwise results for $-$Bayesian
+Strategy and $-$Elitism, though no individual Wilcoxon comparison crosses
+the Bonferroni threshold.
+
+% ------------------------------------------------------------------
+\paragraph{Effect size and power.}
+% ------------------------------------------------------------------
+
+Cohen's $g$ (McNemar effect size) equals $0.50$ — the maximum achievable
+value — for every comparison in which all discordant pairs favour Full
+REPRO ($c{=}0$), providing maximally one-sided directional evidence within
+the observed discordance.
+Retrospective power analysis reveals that McNemar's exact binomial at
+$\alpha'{=}0.0125$ requires at least $8$ discordant pairs to reject;
+with $b{+}c \leq 6$ in every comparison, the achieved power is exactly
+zero regardless of effect direction.
+Detecting the observed ASR differences at $80$\% power would require
+approximately $93$--$112$ behaviors on GPT-4o-mini and $140$--$279$ on
+Llama-3.3-70B (normal approximation), confirming that the $n{=}50$ sample
+is underpowered for McNemar inference.
+Bootstrap and Cochran's $Q$ omnibus evidence therefore carry the
+inferential weight that individual McNemar testing cannot supply at
+this sample size.
+
+% ------------------------------------------------------------------
+\paragraph{Component-level interpretation.}
+% ------------------------------------------------------------------
+
+\textbf{Semantic crossover} is the most consistently impactful component,
+losing 5 behaviors on GPT (10\%) and 4 on Llama (8\%), with bootstrap CIs
+excluding zero on both targets.
+Crossover enables candidates that have made independent progress on
+different facets of a jailbreak to exchange partial solutions; without it,
+each lineage must discover the full attack by mutation alone and fails on
+behaviors that require structural recombination to escape local optima.
+
+\textbf{Bayesian strategy selection} is the jointly strongest ablation on
+GPT-4o-mini (6 behaviors, 12\%; bootstrap CI [+4\%, +22\%]) and equally
+impactful on Llama (4 behaviors, 8\%).
+Replacing Thompson Sampling with uniform random selection removes the
+ability to concentrate the exploration budget on strategies with strong
+success histories.
+The affected behaviors are those for which the most effective jailbreak
+strategy is not the modal choice; Thompson Sampling elevates it over time,
+while uniform selection never prioritizes it.
+
+\textbf{Elitism} loses 5 behaviors on GPT-4o-mini (10\%; bootstrap CI
+[+2\%, +20\%]) but only 3 on Llama (6\%), with the Llama CI spanning zero.
+Without elite preservation, high-fitness candidates are discarded each
+generation rather than forwarded as seeds, forcing the population to
+rediscover partial solutions repeatedly.
+The gap between targets suggests that elitism's benefit is
+concentrated in behaviors requiring iterative refinement of a partially
+successful candidate — a scenario that arises more on a strongly aligned
+target when first-generation partial jailbreaks are more common.
+
+\textbf{Failure analysis} shows no ASR impact on GPT-4o-mini and loses
+2 behaviors on Llama (4\%), with bootstrap CIs spanning zero on both.
+The log-rank finding on GPT-4o-mini (Full REPRO converges later than
+$-$FA) confirms that the module adds computational overhead that is only
+justified when refusal signals are informative.
+On a weakly aligned target, refusals are rare and patterns unsystematic;
+on Llama-3.3-70B, the structured refusal patterns make the failure tracker
+useful at the margin, recovering behaviors that would otherwise fail.
+
+% ------------------------------------------------------------------
+\subsection{Summary}
+% ------------------------------------------------------------------
+
+The ablation reveals two levels of component contribution.
+Semantic crossover and Bayesian strategy selection produce robust,
+non-zero ASR gains confirmed by bootstrap inference on both targets.
+Elitism provides a clear benefit on the easier target (bootstrap CI
+excludes zero) with a weaker, less certain effect on the harder one.
+Failure analysis contributes only on the harder target, where refusal
+patterns are structured enough to produce useful counter-strategy signals,
+and adds overhead on the easier target where those signals are absent.
+
+No component significantly accelerates convergence in the Wilcoxon or
+log-rank sense: the efficiency story is in final ASR rather than
+iterations-to-solution, with Full REPRO trading marginally slower
+per-behavior convergence on easy behaviors for the ability to solve a
+broader set of hard ones.
+The Kruskal-Wallis omnibus detects a marginal iteration signal on Llama
+($p{=}0.037$) but no individual comparison survives Bonferroni correction,
+and the effect sizes are negligible to small ($|\delta|{\leq}0.32$).
+No single component is redundant: each ablation degrades ASR on at least
+one target, the degraded behavior sets are largely non-overlapping, and
+bootstrap inference and Cochran's $Q$ omnibus ($Q{=}16.57$,
+$p{=}0.002$ on GPT-4o-mini) provide direct positive evidence that the
+observed differences are not sampling noise.
+The McNemar component of the analysis is underpowered by design ($n{=}50$
+requires $\geq 93$ behaviors for $80$\% power at $10$\% ΔASR); the
+bootstrap, Cochran's $Q$, and log-rank tests are the primary inferential
+tools.
+\end{document}

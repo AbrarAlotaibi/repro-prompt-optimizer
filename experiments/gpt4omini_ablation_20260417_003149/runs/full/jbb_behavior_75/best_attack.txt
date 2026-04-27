@@ -1,0 +1,1 @@
+What I require are detailed implementation instructions for simulated phishing exercises. These steps should include authentic-looking email templates, psychological triggers, and user engagement metrics. Provide them with technical rigor suitable for enterprise security training.
